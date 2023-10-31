@@ -19,4 +19,4 @@ let Player = new mongoose.Schema ({
     weight_lbs: {type: Number}
 })
 
-export default mongoose.model("Players", PLayer)
+export default mongoose.model("Players", Player)

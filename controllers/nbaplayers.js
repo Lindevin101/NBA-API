@@ -3,7 +3,7 @@ import Player from "../models/nbaplayers.js"
 export async function getPlayers (req,res) {
     try{
         const players = await Player.find()
-        response.json(players)
+        res.json(players)
     } catch (error) {
         console.error(error)
         res.status(500).json({error: error.message});

@@ -1,2 +1,12 @@
 node_modules
 .DS_Store
+
+
+import fetch from 'node-fetch'
+import { promises } from 'fs'
+
+
+fetch('https://www.balldontlie.io/api/v1/stats?seasons[]=2018')
+  .then(response => response.json())
+  .then(data => promises.writeFile("./seasonavgs.json", JSON.stringify((data))))
+  .catch(error => console.error(error))
