@@ -29,7 +29,7 @@ It's important to make sure you have all the dependencies listed in the package.
 
 ## Endpoints
 - `/players`: Retrieve a list of NBA players.(https://nba-api-lin-e943d2a631f5.herokuapp.com/nbaplayers)
-- `/teams`: Get information about NBA teams.()
+- `/teams`: Get information about NBA teams.(https://nba-api-lin-e943d2a631f5.herokuapp.com/nbateams)
 
 ## Sample API Request
 - Retrieve NBA player details:
