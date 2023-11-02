@@ -28,8 +28,8 @@ It's important to make sure you have all the dependencies listed in the package.
 4. Access the API endpoints using a web browser or tools like cURL, Postman, or any HTTP client.
 
 ## Endpoints
-- `/players`: Retrieve a list of NBA players.(https://www.balldontlie.io/api/v1/players)
-- `/teams`: Get information about NBA teams.(https://www.balldontlie.io/api/v1/teams)
+- `/players`: Retrieve a list of NBA players.(https://nba-api-lin-e943d2a631f5.herokuapp.com/nbaplayers)
+- `/teams`: Get information about NBA teams.()
 
 ## Sample API Request
 - Retrieve NBA player details:
