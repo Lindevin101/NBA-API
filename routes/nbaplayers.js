@@ -9,4 +9,6 @@ router.post("/", controllers.createPlayer)
 router.put("/:id", controllers.updatePlayer)
 router.delete("/:id", controllers.deletePlayer)
 
+router.get("/last_name/:lastName", controllers.getPlayerByLastName)
+
 export default router

@@ -12,9 +12,9 @@ export async function getTeams(req,res) {
 
 export async function getTeam(req,res) {
   try {
-    let id = req.params
-    console.log(id.id)
-    const team = await Team.find({ abbreviation: id.id });
+    let {id} = req.params
+
+    const team = await Team.findById(id);
     if (team) {
       return res.json(team);
     }
@@ -27,7 +27,7 @@ export async function getTeam(req,res) {
 
 export async function createTeam(req,res) {
   try {
-    const team = new Team(request.body);
+    const team = new Team(req.body);
     await team.save();
     res.status(201).json(team);
   } catch (error) {
@@ -39,7 +39,7 @@ export async function createTeam(req,res) {
 export async function updateTeam(req,res) {
   try {
     const { id } = req.params;
-    const team = await Team.update({ last_name: id.id }, req.body);
+    const team = await Team.findByIdAndUpdate(id, req.body);
     res.status(201).json(team);
   } catch (error) {
     console.error(error);

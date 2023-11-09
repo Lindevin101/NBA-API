@@ -12,9 +12,10 @@ export async function getPlayers (req,res) {
 
 export async function getPlayer (req,res) {
     try {
-        let id = req.params
-        console.log(id.id)
-        const player = await Player.find({ last_name: id.id });
+        let {id} = req.params
+
+        const player = await Player.findById(id);
+
         if (player){
             return response.json(player);
         }
@@ -28,7 +29,7 @@ export async function getPlayer (req,res) {
 export async function createPlayer (req, res) {
     try{
         const player = new Player (request.body);
-        awaitplayer.save();
+        await player.save();
         res.status(201).json(player);
     } catch (error) {
         console.error(error);
@@ -39,7 +40,7 @@ export async function createPlayer (req, res) {
 export async function updatePlayer(req,res) {
     try{
         const {id} = request.params; 
-        const player = await Player.update({ last_name: id.id}, req.body);
+        const player = await Player.findByIdAndUpdate(id, req.body);
         res.status(201).json(player);
     } catch (error) {
         console.error(error);
@@ -56,6 +57,17 @@ export async function deletePlayer(req,res) {
         }
         throw new Error ("Player not found");
     }catch (error) {
+        console.error(error);
+        res.status(500).json({error: error.message});
+    }
+}
+
+export async function getPlayerByLastName(req, res) {
+    try {
+        const { lastName } = req.params
+        const player = await Player.find({last_name: lastName})
+        res.json(player)
+    } catch (error) {
         console.error(error);
         res.status(500).json({error: error.message});
     }
